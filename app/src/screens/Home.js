@@ -4,6 +4,7 @@ import { getBase64 } from '../utils/parser';
 
 const Home = () => {
   const [imageRaw, setImageRaw] = useState('');
+  const [resultImage, setResultImage] = useState('');
   const _handleFileInput = async (e) => {
     let file = e.target.files[0];
     let imageData = await getBase64(file);
@@ -20,6 +21,14 @@ const Home = () => {
         })
       );
     };
+    socket.onmessage = ({ data }) => {
+      let parsed = JSON.parse(data);
+      if (parsed?.type === 'result_image') {
+        if (parsed?.image === imageRaw) {
+          setResultImage(parsed.image);
+        }
+      }
+    };
   };
   return (
     <div className="home-screen">
@@ -33,7 +42,14 @@ const Home = () => {
             />
             {imageRaw !== '' && <img src={imageRaw} alt="demo view" />}
           </div>
-          <div>imagen 2</div>
+          <div className="image-upload">
+            {resultImage !== '' && imageRaw === resultImage && (
+              <>
+                Coincidencia del 100%
+                <img src={resultImage} alt="demo view" />
+              </>
+            )}
+          </div>
         </div>
         <div className="actions">
           <button onClick={_handleUploadFile}>Subir imagen</button>
