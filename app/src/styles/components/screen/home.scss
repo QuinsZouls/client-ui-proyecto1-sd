@@ -1,0 +1,39 @@
+.home-screen {
+  width: 100vw;
+  height: 100vh;
+  background-color: #dfe6e9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .wrapper {
+    width: 80%;
+    margin: auto;
+    .row-image {
+      display: flex;
+      justify-content: space-between;
+      div {
+        min-width: 400px;
+        min-height: 500px;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 20px;
+      }
+    }
+  }
+  .actions {
+    padding: 20px;
+    text-align: center;
+    margin-top: 10px;
+    button {
+      min-width: 300px;
+      min-height: 50px;
+      border: none;
+      cursor: pointer;
+      background-color: #0984e3;
+      color: #fff;
+      font-family: 'Source Code Pro', monospace;
+      border-radius: 10px;
+      font-weight: bolder;
+    }
+  }
+}
