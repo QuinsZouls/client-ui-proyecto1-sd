@@ -11,8 +11,14 @@
     .row-image {
       display: flex;
       justify-content: space-between;
+      .image-upload {
+        img {
+          margin-top: 30px;
+          width: 100%;
+        }
+      }
       div {
-        min-width: 400px;
+        width: 400px;
         min-height: 500px;
         background-color: #fff;
         padding: 20px;
